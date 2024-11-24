@@ -5,10 +5,16 @@ const mongoose = require("mongoose");
 
 const app = require("./app.js");
 
-const URI = "mongodb+srv://Yupiter:Jwg3Pwfpx9XQLEYn@cluster0.b743s.mongodb.net/books_reader?retryWrites=true&w=majority&appName=Cluster0";
 
 
-// xxx
+// const {URI} = require("./config.js");
+
+const {URI} = process.env;
+// const URI = myURI;
+// const URI = "mongodb+srv://Yupiter:Jwg3Pwfpx9XQLEYn@cluster0.b743s.mongodb.net/books_reader?retryWrites=true&w=majority&appName=Cluster0";
+
+
+// console.log(process.env); // обэкт налаштування мого пк
 
 mongoose.connect(URI)
     .then(()=> {
