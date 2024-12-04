@@ -4,14 +4,12 @@ console.log("Git-3_1_serv app.js");
 
 const express = require("express");
 const app = express();
-
-// const logger = require("morgan");
-// const formatsLogger = app.get("env") === "development" ? "dev" : "short";
-// app.use(logger(formatsLogger));
+const dotenv = require("dotenv");
 
 const booksRouter = require("./routes/api/books");
-// const contactsRouter = require("./routes/api/contacts");
 
+
+dotenv.config();
 
 const cors = require("cors");
 app.use(cors()); // Вирішує крос адресацію (різні адреси)
@@ -19,8 +17,6 @@ app.use(cors()); // Вирішує крос адресацію (різні ад�
 app.use(express.json()); // Перевіряє чи є у запиті (POST) тіло і який тип по заголовку
 
 app.use("/api/books", booksRouter);
-// app.use("/api/contacts", contactsRouter);
-
 
 //  == Функція обробник запиту на адресу якої немає
 app.use((req, res) => {

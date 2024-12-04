@@ -3,6 +3,7 @@
 console.log("run api/books.js");
 
 const express = require("express");
+// const ctrl = require("../../constrollers/books.js");
 const  router = express.Router();
 // const Joi = require("joi"); // перевіряe в (POST) чи усі поля заповнені
 
@@ -18,6 +19,12 @@ const addSchema = Joi.object({
     author: Joi.string().required(),
 });
 
+
+// router.get("/", ctrl.getAll);
+// router.get("/:id", ctrl.getById);
+// router.post("/", validateBody(schemas.addSchema), ctrl.add);
+// router.put("/:id", validateBody(schemas.addSchema), ctrl.updateById);   
+// router.delete("/:id", ctrl.deleteById);
 
 // === Отримати усе
 router.get("/", async (req, res, next) => {
